@@ -10,9 +10,11 @@ import Row from "../Row/Row";
 
 interface TableProps {
   rows: DataCenter[];
+  onEdit: (row: DataCenter) => void;
+  onDelete: (id: number) => void;
 }
 
-function Table({ rows }: TableProps) {
+function Table({ rows, onEdit, onDelete }: TableProps) {
   return (
     <table className="table table-dark table-striped text-light text-center align-middle">
       <thead>
@@ -44,12 +46,16 @@ function Table({ rows }: TableProps) {
               <span>Sala</span>
             </div>
           </th>
+
+          <th>Tags</th>
+          <th>Rack</th>
+          <th>Acoes</th>
         </tr>
       </thead>
 
       <tbody>
         {rows.map((row) => (
-          <Row key={row.id} dataCenter={row} />
+          <Row key={row.id} dataCenter={row} onEdit={onEdit} onDelete={onDelete} />
         ))}
       </tbody>
     </table>
