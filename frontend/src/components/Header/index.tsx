@@ -1,3 +1,5 @@
+import frostLogo from "../../assets/frost.png";
+
 function Header() {
   return (
     <nav className="bg-info navbar navbar-expand-lg navbar-light shadow-sm">
@@ -5,7 +7,7 @@ function Header() {
         <a className="navbar-brand" href="#home">
           <img
             style={{ width: "150px" }}
-            src="src/assets/frost.png"
+            src={frostLogo}
             alt="Permafrost"
           />
         </a>
