@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "node --watch src/server.js",
+    "db:schema": "docker exec timescaledb_backend psql -U postgres -d timescaledb -f /docker-entrypoint-initdb.d/01-schema.sql",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

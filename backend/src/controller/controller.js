@@ -15,7 +15,10 @@ async function listarDataCenters(req, res) {
         res.json(dataCenters)
     } catch (err) {
         console.error("Erro ao listar data centers:", err)
-        res.status(500).json({ error: "Erro ao consultar data centers" })
+        res.status(500).json({
+            error: "Erro ao consultar data centers",
+            details: process.env.NODE_ENV === "production" ? undefined : err.message,
+        })
     }
 }
 
